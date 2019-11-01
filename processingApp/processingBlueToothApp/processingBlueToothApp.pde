@@ -25,7 +25,7 @@ void setup()
   b = 0;
 
 println(Serial.list()); // IMPORTANT: prints the availabe serial ports.
-String portName = Serial.list()[0]; // change the 0 to a 1 or 2 etc, to match your port (Play with it until you find the one that works for you- It's probably 11!)
+String portName = Serial.list()[2]; // change the 0 to a 1 or 2 etc, to match your port (Play with it until you find the one that works for you- It's probably 11!)
   myPort = new Serial(this, portName, 9600); // Initializing the serial port.
 }
  
@@ -60,51 +60,20 @@ void keyPressed()
 {
  
  
-  switch (keyCode) { //Switch case: Sending different signals and filling different arrows red according to which button was pressed.   
-    /*case UP: //In case the UP button was pressed:
-   myPort.write('1'); // Send the signal 1
-      println("UP!"); // + Print "UP!" (Debugging only) 
-  fill(255,0,0); // + Fill the up triangle with red.
-triangle(750, 235, 800, 160, 850, 235);
- 
-     break;
-    case DOWN:
- myPort.write('2');
-      println("DOWN!");
- fill(255,0,0);
- rect(750, 250, 100, 100,7);
-
-      break; 
-    case LEFT:
- myPort.write('3');
-      println("LEFT!");
- fill(255,0,0);
- triangle(735, 350, 660, 300, 735, 250);
-  
-    break;
-    case RIGHT:
-    myPort.write('4');
-      println("RIGHT!");
-   fill(255,0,0);
-  triangle(865, 250, 940, 300, 865, 350);
-   
-    break;*/
-    
+  switch (keyCode) 
+  { 
     case UP:
     myPort.write('1');
     println("Clockwise");
     break;
     case DOWN:
     myPort.write('2');
+    println(myPort.read());
     println("Counterclockwise");
     break;
-case ENTER :
-myPort.write ('0');
- println("STOP!");
- fill(255,0,0);
-rect(50, 250, 400, 100,5);
-
-break;
+    
+    //fill(255,0,0);
+    //rect(50, 250, 400, 100,5);
     default:
     break;
   }

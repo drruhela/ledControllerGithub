@@ -25,24 +25,24 @@ void setup()
   b = 0;
 
 println(Serial.list()); // IMPORTANT: prints the availabe serial ports.
-String portName = Serial.list()[2]; // change the 0 to a 1 or 2 etc, to match your port (Play with it until you find the one that works for you- It's probably 11!)
+String portName = Serial.list()[1]; // 1 on Olivia's computer, 2 on Devika's
   myPort = new Serial(this, portName, 9600); // Initializing the serial port.
 }
  
 void draw()
 {
    
-background(229,238,255); // Setting up the background's colour- Yellow.
+background(229,238,255); //Light Blue Background.
 
 fill (51,125,255); // Painting the Arrows White.
-rect(750, 250, 100, 100,100); // BWD rectangle
+rect(900, 30,70,70,15);//ON/OFF button
+rect(750, 250, 100, 100,100); // circle
 triangle(750, 235, 800, 160, 850, 235); //FWD triangle
 triangle(735, 350, 660, 300, 735, 250); //RHT triangle
 triangle(865, 250, 940, 300, 865, 350); //LFT triangle
 triangle(750, 365, 800, 440, 850, 365); //BWD triangle
-rect(50, 135, 400, 100,5); //BRAKE rectangle
-rect(50, 335, 400, 100,5); //BRAKE rectangle
-//rect(50, 650, 400, 100,5); //BRAKE rectangle
+rect(50, 135, 400, 100,5); //UP rectangle
+rect(50, 335, 400, 100,5); //DOWN rectangle
 textSize(32); // Defining the headline's size- 32
 fill (0,0,255); // painting the headline blue.
 text(T, 1000/2 - 1000/5, 50);  // placing the headline in a specific location
@@ -52,8 +52,6 @@ text(T1, 780, 220); //FWD
 text(T2, 875, 310);//RHT
 text(T3, 690, 310); //LFT
 text(T4, 780, 400);//BWD
-//text(T5, 225, 110); //BRAKE
-rect(465,475,70,70,15);
 text(T6, 225, 195); //UP
 text(T7, 210, 395); //DOWN
 }
